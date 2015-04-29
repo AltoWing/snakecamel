@@ -3,9 +3,9 @@ package snakecamel;
 public class SnakeCamelUtil {
 
 	public static String snakeToCamelcase(String snake_case) {
-		String[] words = snake_case.split("_");
+		String[] words = snake_case.split("_");//_で分割
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < words.length - 1; i++) {
+		for (int i = 0; i < words.length ; i++) {//確かここ変更
 			sb.append(capitalize(words[i]));
 		}
 		return new String(sb);
@@ -15,14 +15,14 @@ public class SnakeCamelUtil {
 		StringBuilder sb = new StringBuilder();
 		int j = 0;
 		for (int i = 0; i < camelcase.length(); i++) {
-			char c = camelcase.charAt(i);
-			if (Character.isUpperCase(c)) {
-				sb.append(camelcase.substring(j, i));
+			char c = camelcase.charAt(i);//i文字目
+			if (Character.isUpperCase(c)) {//i文字目が大文字？
+				sb.append(camelcase.substring(j,i));//j~i文字目
 				if (sb.length() > 0) {
 					sb.append("_");
 				}
-				sb.append(Character.toLowerCase(c));
-				j = i;
+				sb.append(Character.toLowerCase(c));//小文字
+				j = i+1;//変更
 			}
 		}
 		sb.append(camelcase.substring(j));
@@ -30,8 +30,8 @@ public class SnakeCamelUtil {
 	}
 	
 	static String capitalize(String s) {
-		char first = s.charAt(0);
-		char upperFirst = Character.toUpperCase(first);
+		char first = s.charAt(0);//頭文字を
+		char upperFirst = Character.toUpperCase(first);//大文字に
 		String rest = s.substring(1);
 		return upperFirst + rest;
 	}
