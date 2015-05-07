@@ -22,6 +22,7 @@ public class SunakeCamelTest {
 		System.out.println(s3);
 	}
 	
+	
 	@Test
 	public void camelToSanake‚Å•¶Žš—ñ•ÏŠ·(){
 		SnakeCamelUtil scu = new SnakeCamelUtil();
